@@ -1,0 +1,8 @@
+all:
+  hosts:
+    localhost:
+      ansible_host: 127.0.0.1
+      ansible_connection: local
+      var1: value1
+  vars:
+    group_var: value2

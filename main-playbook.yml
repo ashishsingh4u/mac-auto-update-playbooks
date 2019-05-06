@@ -1,0 +1,4 @@
+---
+# Arrange all the playbook here
+- import_playbook : playbooks/api.yml
+- import_playbook : playbooks/soft.yml

@@ -1,0 +1,20 @@
+---
+
+- name: install update mac-book api
+  hosts: all
+  # connection: local
+  # become: yes
+  # become_method: sudo
+  vars:
+    var_node: /tmp
+  roles:
+    - mac-api-upgrade
+  tasks:
+    # - debug: 
+    #     var: ansible_all_ipv4_addresses
+    # - debug: 
+    #     var: ansible_default_ipv4.address
+    # - debug:
+    #     var: npm_version_output.stdout_lines
+    # - debug:
+    #     var: npm_install_output.stdout_lines
