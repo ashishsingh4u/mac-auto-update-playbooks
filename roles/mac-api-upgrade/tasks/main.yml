@@ -14,31 +14,24 @@
 #   debug: 
 #     var: npm_version_output.stdout_lines
 
-- name: update npm
-  npm: 
-    name: npm
-    global: yes
-    state: latest
+# - name: update npm
+#   npm: 
+#     name: npm
+#     global: yes
+#     state: latest
 #   register: npm_install_output
 # - name: display npm install output
 #   debug:
 #       msg: "{{ npm_install_output.stdout_lines }}"
 
-- name: update typescript
+- name: "update npm packages"
   npm: 
-    name: typescript
+    name: "{{ item }}"
     global: yes
     state: latest
-
-- name: update angular cli
-  npm: 
-    name: "@angular/cli"
-    global: yes
-    state: latest
-
-- name: update npm-check-updates
-  npm:
-    name: npm-check-updates
-    global: yes
-    state: latest
+  with_items:
+    - "npm"
+    - "typescript"
+    - "@angular/cli"
+    - "npm-check-updates"
 
