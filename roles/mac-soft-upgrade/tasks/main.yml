@@ -4,16 +4,34 @@
     update_homebrew: yes
     upgrade_all: yes
 
-- name: update homebrew cask
+- name: update homebrew packages
   homebrew:
-    update_homebrew: yes
-    upgrade_all: yes
-
-- name: update node
-  homebrew:
-    name: node@10
+    name: ['node@10', 'git-flow']
     state: upgraded
     install_options: force
+
+- name: update homebrew cask packages
+  homebrew_cask:
+    name: "{{ item }}"
+    state: upgraded
+    install_options: force
+  with_items:
+    - "visual-studio-code"
+    - "postman"
+    - "vlc"
+    - "google-chrome"
+    - "gimp"
+    - "studio-3t"
+    - "skype"
+    - "expressvpn"
+    - "citrix-receiver"
+    - "spectacle"
+    - "iterm2"
+    - "intellij-idea-ce"
+    - "whatsapp"
+    - "telegram"
+    - "docker"
+    - "kitematic"
 
 - name: check oh-my-zsh installation
   command: test -d ~/.oh-my-zsh
@@ -28,105 +46,3 @@
     force: yes
     # accept_hostkey: yes
   when: omz_bound is succeeded
-
-- name: update vscode
-  homebrew_cask:
-    name: visual-studio-code
-    state: upgraded
-    install_options: force
-
-- name: update postman
-  homebrew_cask:
-    name: postman
-    state: upgraded
-    install_options: force
-
-- name: update vlc
-  homebrew_cask:
-    name: vlc
-    state: upgraded
-    install_options: force
-
-- name: update chrome
-  homebrew_cask:
-    name: google-chrome
-    state: upgraded
-    install_options: force
-
-- name: update gimp
-  homebrew_cask:
-    name: gimp
-    state: upgraded
-    install_options: force
-
-- name: update studio-3t
-  homebrew_cask:
-    name: studio-3t
-    state: upgraded
-    install_options: force
-
-- name: update skype
-  homebrew_cask:
-    name: skype
-    state: upgraded
-    install_options: force
-
-- name: update expressvpn
-  homebrew_cask:
-    name: expressvpn
-    state: upgraded
-    install_options: force
-
-- name: update citrix-receiver
-  homebrew_cask:
-    name: citrix-receiver
-    state: upgraded
-    install_options: force
-
-- name: update spectacle
-  homebrew_cask:
-    name: spectacle
-    state: upgraded
-    install_options: force
-
-- name: update iterm2
-  homebrew_cask:
-    name: iterm2
-    state: upgraded
-    install_options: force
-
-- name: update intellij-idea-ce
-  homebrew_cask:
-    name: intellij-idea-ce
-    state: upgraded
-    install_options: force
-
-- name: update whatsapp
-  homebrew_cask:
-    name: whatsapp
-    state: upgraded
-    install_options: force
-
-- name: update telegram
-  homebrew_cask:
-    name: telegram
-    state: upgraded
-    install_options: force
-
-- name: update docker
-  homebrew_cask:
-    name: docker
-    state: upgraded
-    install_options: force
-
-- name: update kitematic
-  homebrew_cask:
-    name: kitematic
-    state: upgraded
-    install_options: force
-
-- name: update git-flow
-  homebrew:
-    name: git-flow
-    state: upgraded
-    install_options: force
