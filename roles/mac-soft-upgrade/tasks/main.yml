@@ -6,7 +6,7 @@
 
 - name: update homebrew packages
   homebrew:
-    name: ['node@10', 'git-flow']
+    name: ['node@10', 'git-flow', 'kubernetes-cli']
     state: upgraded
     install_options: force
 
@@ -24,7 +24,7 @@
     - "studio-3t"
     - "skype"
     - "expressvpn"
-    - "citrix-receiver"
+    # - "citrix-receiver"
     - "spectacle"
     - "iterm2"
     - "intellij-idea-ce"
