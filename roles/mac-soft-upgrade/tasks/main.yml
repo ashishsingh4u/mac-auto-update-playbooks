@@ -6,7 +6,7 @@
 
 - name: update homebrew packages
   homebrew:
-    name: ['node@10', 'git-flow', 'kubernetes-cli']
+    name: ['node@10', 'git-flow', 'kubernetes-cli', maven]
     state: upgraded
     install_options: force
 
