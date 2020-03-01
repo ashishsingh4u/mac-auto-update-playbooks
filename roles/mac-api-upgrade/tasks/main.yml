@@ -31,7 +31,4 @@
     state: latest
   with_items:
     - "npm"
-    - "typescript"
-    - "@angular/cli"
     - "npm-check-updates"
-

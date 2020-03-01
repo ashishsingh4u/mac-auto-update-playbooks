@@ -6,15 +6,15 @@
 
 - name: update homebrew packages
   homebrew:
-    name: ['node@10', 'git-flow', 'kubernetes-cli', maven]
-    state: upgraded
+    name: ['node', 'git-flow', 'maven', 'angular-cli', 'typescript']
+    state: latest
     install_options: force
 
 - name: update homebrew cask packages
   homebrew_cask:
     name: "{{ item }}"
     state: upgraded
-    install_options: force
+    install_options: upgrade
   with_items:
     - "visual-studio-code"
     - "postman"
@@ -24,14 +24,11 @@
     - "studio-3t"
     - "skype"
     - "expressvpn"
-    # - "citrix-receiver"
     - "spectacle"
     - "iterm2"
     - "intellij-idea-ce"
     - "whatsapp"
     - "telegram"
-    - "docker"
-    - "kitematic"
 
 - name: check oh-my-zsh installation
   command: test -d ~/.oh-my-zsh
